@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Funding : MonoBehaviour
+public class ScenarioSystem : MonoBehaviour
 {
-    public int startingMoney;
-    public int money;
+    //Here we will have to organise lists of newspaper entries and scenarios adn print them out at their necessary timing
     
     // Start is called before the first frame update
     void Start()
     {
-        money = startingMoney;
+        
     }
 
     // Update is called once per frame

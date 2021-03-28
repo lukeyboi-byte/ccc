@@ -14,7 +14,7 @@ public class MouseCursor : MonoBehaviour
     {
         Cursor.SetCursor(cursorArrow, mousePos, CursorMode.ForceSoftware);
         
-        //will only work for the build of the game
+        //will only work properly for the build of the game (this locks the mouse cursor within the game screen bounds)
         Cursor.lockState = CursorLockMode.Confined;
     }
 
