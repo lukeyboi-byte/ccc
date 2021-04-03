@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,16 +6,17 @@ using UnityEngine;
 public class StatHandler : MonoBehaviour
 {
     //here we will have the events reusable for both popularity and funding
-    
-    // Start is called before the first frame update
-    void Start()
+
+    public Action<int> addAmount;
+    public Action<int> takeAmount;
+
+    void AddAmount(int amount)
     {
-        
+        addAmount?.Invoke(amount);
     }
 
-    // Update is called once per frame
-    void Update()
+    void TakeAmount(int amount)
     {
-        
+        takeAmount?.Invoke(amount);
     }
 }

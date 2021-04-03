@@ -1,20 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ScenarioSystem : MonoBehaviour
 {
     //Here we will have to organise lists of newspaper entries and scenarios adn print them out at their necessary timing
+    public DialogueManager dialogueManager;
+    public DayCycle dayCycle;
     
-    // Start is called before the first frame update
+    public event Action OpenScenario;
+
     void Start()
     {
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         
+    }
+
+    public void OnOpenScenario()
+    {
+        OpenScenario?.Invoke();
     }
 }

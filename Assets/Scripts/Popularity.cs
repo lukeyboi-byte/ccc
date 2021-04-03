@@ -11,6 +11,7 @@ public class Popularity : MonoBehaviour
     public int popularity;
     private Slider slider;
 
+    private StatHandler stathandler;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,13 @@ public class Popularity : MonoBehaviour
     {
         
     }
+
+    public void GainPopularity()
+    {
+        //stathandler.addAmount += GainPopularity();
+    }
+    
+    
 }
 
 

@@ -28,11 +28,11 @@ public class MouseCursor : MonoBehaviour
     {
         mousePos = Input.mousePosition;
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("y= " + mousePos.x);
-            Debug.Log("x= " + mousePos.y);
-        }
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     Debug.Log("y= " + mousePos.x);
+        //     Debug.Log("x= " + mousePos.y);
+        // }
         
     }
 }
