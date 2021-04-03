@@ -15,10 +15,22 @@ public class Funding : MonoBehaviour
     void Start()
     {
         money = startingMoney;
+
+        fundingText.SetText("$" + money.ToString());
     }
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+
+    public void AddFunds()
+    {
+        
+    }
+
+    public void TakeFunds()
     {
         
     }

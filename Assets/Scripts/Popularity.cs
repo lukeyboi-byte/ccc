@@ -31,7 +31,11 @@ public class Popularity : MonoBehaviour
     {
         //stathandler.addAmount += GainPopularity();
     }
-    
+
+    public void LosePopularity()
+    {
+        
+    }
     
 }
 

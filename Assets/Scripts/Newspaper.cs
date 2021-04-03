@@ -6,22 +6,19 @@ using TMPro;
 
 public class Newspaper : MonoBehaviour
 {
-    public DialogueManager dialogueManager;
-    public DayCycle dayCycle;
+    public GameObject newspaper;
 
-    public event Action OpenNewspaper;
-    void Start()
+    public void OpenNewspaper()
     {
-        throw new NotImplementedException();
-    }
-
-    void Update()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void OnOpenNewspaper()
-    {
-        OpenNewspaper?.Invoke();
+        Debug.Log("Newspaper opened");
+        
+        if (newspaper.activeSelf == false)
+        {
+            newspaper.SetActive(true);
+        }
+        else
+        {
+            newspaper.SetActive(false);
+        }
     }
 }

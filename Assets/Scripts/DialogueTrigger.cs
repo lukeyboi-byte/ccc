@@ -7,7 +7,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
     public Newspaper newspaper;
-    public ScenarioSystem ScenarioSystem;
+    public ScenarioSystem scenarioSystem;
     public void TriggeredDialogue()
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
@@ -15,11 +15,11 @@ public class DialogueTrigger : MonoBehaviour
 
     public void OpenNewspaper()
     {
-        
+        newspaper.OpenNewspaper();
     }
 
     public void OpenScenario()
     {
-        
+        scenarioSystem.OpenScenario();
     }
 }
