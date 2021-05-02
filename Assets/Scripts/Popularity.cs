@@ -7,36 +7,66 @@ using UnityEngine.UI;
 
 public class Popularity : MonoBehaviour
 {
+    public ScenarioDisplay scenarioDisplay;
+    public Scenario calcScenario;
     public int startingPopularity;
-    public int popularity;
+    public int popularityOutcome;
+    public int currentPopularity;
     private Slider slider;
-
-    private StatHandler stathandler;
 
     // Start is called before the first frame update
     void Start()
     {
-        popularity = startingPopularity;
+        currentPopularity = startingPopularity;
         slider = GetComponent<Slider>();
-        slider.value = popularity;
-    }
+        slider.value = currentPopularity;
 
-    // Update is called once per frame
-    void Update()
-    {
+        if (scenarioDisplay.currentScenario != null)
+        { 
+            calcScenario = scenarioDisplay.currentScenario;
+        }
         
     }
 
-    public void GainPopularity()
+    private void Update()
     {
-        //stathandler.addAmount += GainPopularity();
+        throw new NotImplementedException();
     }
 
-    public void LosePopularity()
+    public void InstantPopOutcome()
     {
-        
+        if (calcScenario != null)
+        {
+            if (calcScenario.instantPopGain)
+            {
+                popularityOutcome = calcScenario.popularityGain;
+            }
+
+            if (calcScenario.instantPopLoss)
+            {
+                popularityOutcome = calcScenario.popularityLoss;
+            }
+            popularityOutcome += currentPopularity;
+        }
     }
-    
+
+    public void EndDayPop()
+    {
+        if (calcScenario != null)
+        {
+            if (calcScenario.instantPopGain == false)
+            {
+                popularityOutcome = calcScenario.popularityGain;
+            }
+
+            if (calcScenario.instantPopLoss == false)
+            {
+                popularityOutcome = calcScenario.popularityLoss;
+            }
+            popularityOutcome += currentPopularity;
+        }
+    }
+
 }
 
 

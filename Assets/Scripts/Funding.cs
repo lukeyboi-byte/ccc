@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,33 +6,63 @@ using TMPro;
 
 public class Funding : MonoBehaviour
 {
+    public ScenarioDisplay scenarioDisplay;
+    public Scenario calcScenario;
     public int startingMoney;
-    public int money;
+    public int fundsOutcome;
+    public int currentFunds;
     public TextMeshProUGUI fundingText;
-
-    private StatHandler stathandler;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        money = startingMoney;
+        currentFunds = startingMoney;
 
-        fundingText.SetText("$" + money.ToString());
+        fundingText.SetText("$ " + currentFunds.ToString());
+        
+        if (scenarioDisplay.currentScenario != null)
+        {
+            calcScenario = scenarioDisplay.currentScenario;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        throw new NotImplementedException();
     }
 
-    public void AddFunds()
+    public void InstantFundsOutcome()
     {
-        
+        if (calcScenario != null)
+        {
+            if (calcScenario.instantCostGain)
+            {
+                fundsOutcome = calcScenario.costGain;
+            }
+
+            if (calcScenario.instantPopLoss)
+            {
+                fundsOutcome = calcScenario.costLoss;
+            }
+            fundsOutcome += currentFunds;
+        }
     }
 
-    public void TakeFunds()
+    public void EndDayFunds()
     {
-        
+        if (calcScenario != null)
+        {
+            if (calcScenario.instantPopGain == false)
+            {
+                fundsOutcome = calcScenario.costGain;
+            }
+
+            if (calcScenario.instantPopLoss == false)
+            {
+                fundsOutcome = calcScenario.costLoss;
+            }
+            fundsOutcome += currentFunds;
+        }
     }
 }

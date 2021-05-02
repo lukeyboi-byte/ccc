@@ -5,26 +5,30 @@ using UnityEngine;
 
 public class DayCycle : MonoBehaviour
 {
-    //We will manage the day cycle here which will create events for scripts that need to know when to apply there functions
-    public event Action NextDay;
-    
-    public int day = 0;
-    
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// 1. start day with opening newspaper with a reaction to scenario choices next day (first day will have the same paper for now maybe welcoming the mayor to office)
+    /// 2. calculate funding and popularity
+    /// 3. change scenario
+    /// 4. player has to approve or deny a scenario
+    /// 5. immediate funding calculation after choice
+    /// 6. end day
+    /// </summary>
+    ///
+    public EventManager eventManager;
+    public int day = 1;
+
+    public void OnEnable()
     {
-        
+        eventManager.OnNextDayEvent += NextDay;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnDisable()
     {
-        
+        eventManager.OnNextDayEvent -= NextDay;
     }
 
-    public void OnNextDay()
+    public void NextDay()
     {
         day++;
-        NextDay?.Invoke();
     }
 }

@@ -5,21 +5,17 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue dialogue;
-    public Newspaper newspaper;
-    public ScenarioSystem scenarioSystem;
-    public void TriggeredDialogue()
-    {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-    }
+    public NewspaperDisplay newspaperDisplay;
+    public ScenarioDisplay scenarioDisplay;
+    public EventManager eventManager;
 
     public void OpenNewspaper()
     {
-        newspaper.OpenNewspaper();
+        newspaperDisplay.OpenNewspaper();
     }
 
     public void OpenScenario()
     {
-        scenarioSystem.OpenScenario();
+        scenarioDisplay.OpenScenario();
     }
 }

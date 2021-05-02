@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,31 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 {
     [SerializeField] private Canvas canvas;
 
+    public Funding funding;
+    public Popularity popularity;
+    public Collider2D scenarioStampingCol;
+    public bool isStamp;
+
     private RectTransform rectTransform;
+
+    public void Start()
+    {
+        if (funding == null)
+        {
+            return;
+        }
+
+        if (popularity == null)
+        {
+            return;
+        }
+
+        if (scenarioStampingCol == null)
+        {
+            return;
+        }
+    }
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -26,6 +51,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        //here is where I need to work out stamping with instant outcome
+        
         Debug.Log("OnEndDrag");
     }
 
@@ -34,4 +61,12 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         Debug.Log("OnPointerDown");
     }
 
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other == scenarioStampingCol)
+        {
+            funding.InstantFundsOutcome();
+            popularity.InstantPopOutcome();
+        }
+    }
 }

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1de6489d1146847bb9f5bff7135007, type: 3}
+  m_Name: s2
+  m_EditorClassIdentifier: 
+  scenarioHeadlineText: Community shelter 2
+  scenarioDialogueText: 'The rate of homelessness is increasing more than ever before
+    we need to respond to this somehow even if there is an opportunity for the homeless
+    to at least have a decent sleep in a warm home.
+
+
+    I want to build a community
+    shelter for these victims of society and would appreciate if you would consider
+    funding.
+
+
+    would cost around $$$$
+
+
+    but the return would be opportunity
+    to those less fortunate 2222'
+  sender: Jeff Hipster 2
+  scenarioBranch: 2
+  costText: 40000
+  costGain: 100000
+  instantCostGain: 0
+  costLoss: 50000
+  instantCostLoss: 1
+  popularityGain: 80
+  instantPopGain: 1
+  popularityLoss: 15
+  instantPopLoss: 0
