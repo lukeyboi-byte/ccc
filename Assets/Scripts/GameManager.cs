@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject newspaperView;
-    public GameObject scenarioView;
+    //here is where all the action will happen collecting most of the events connected to the scenario system and day cycle
     
     // Start is called before the first frame update
     void Start()
     {
-        newspaperView.SetActive(false);
-        scenarioView.SetActive(false);
+        
     }
 
     // Update is called once per frame

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +8,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     [SerializeField] private Canvas canvas;
 
     private RectTransform rectTransform;
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of c614b1e (getting there)
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -28,7 +30,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnEndDrag(PointerEventData eventData)
     {
+<<<<<<< HEAD
         //here is where I need to work out stamping with instant outcome
+=======
+>>>>>>> parent of c614b1e (getting there)
         Debug.Log("OnEndDrag");
     }
 
@@ -36,4 +41,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         Debug.Log("OnPointerDown");
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of c614b1e (getting there)
 }

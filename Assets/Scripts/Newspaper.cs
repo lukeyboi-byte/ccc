@@ -1,18 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-[System.Serializable]
-[CreateAssetMenu(fileName = "New Newspaper", menuName = "Newspaper")]
-public class Newspaper : ScriptableObject
-{ 
-     [TextArea(1,3)]
-     public string newspaperHeadlineText;
-     [TextArea(15,20)]
-     public string newspaperDialogueText;
-     [TextArea(1,3)]
-     public string newspaperCompany;
+public class Newspaper : MonoBehaviour
+{
+    public GameObject newspaper;
 
+<<<<<<< HEAD
      public int scenarioBranch;
      public bool positive;
+=======
+    public void OpenNewspaper()
+    {
+        Debug.Log("Newspaper opened");
+        
+        if (newspaper.activeSelf == false)
+        {
+            newspaper.SetActive(true);
+        }
+        else
+        {
+            newspaper.SetActive(false);
+        }
+    }
+>>>>>>> parent of c614b1e (getting there)
 }
