@@ -10,6 +10,7 @@ public class NewspaperDisplay : MonoBehaviour
     public GameObject newspaper;
     public DayCycle daycycle;
     public EventManager eventManager;
+    public Popularity popularity;
     
     public TextMeshProUGUI companyName;
     public TextMeshProUGUI headline;
@@ -24,32 +25,34 @@ public class NewspaperDisplay : MonoBehaviour
 
     private void OnEnable()
     {
-        eventManager.OnNextDayEvent += CloseNewspaper;
+        eventManager.NextDayEvent += CloseNewspaper;
     }
 
     private void OnDisable()
     {
-        eventManager.OnNextDayEvent -= CloseNewspaper;
+        eventManager.NextDayEvent -= CloseNewspaper;
     }
 
     public void OpenNewspaper()
     {
         foreach (Newspaper n in newspaperObjects)
         {
-            if (n.scenarioBranch == daycycle.day)
+            if (n.scenarioBranch == daycycle.currentDay)
             {
-                if (newspaper.activeSelf == false)
+                if (popularity.currentPopularity >= 1000)
                 {
-                    newspaper.SetActive(true);
+                    if (n.positive)
+                    {
+                        ActivateNewspaper(n);
+                    }
                 }
                 else
                 {
-                    newspaper.SetActive(false);
+                    if (n.positive == false)
+                    {
+                        ActivateNewspaper(n);
+                    }
                 }
-
-                companyName.text = n.newspaperCompany;
-                headline.text = n.newspaperHeadlineText;
-                dialogue.text = n.newspaperDialogueText;
             }
         }
     }
@@ -60,5 +63,21 @@ public class NewspaperDisplay : MonoBehaviour
         {
             newspaper.SetActive(false);
         }
+    }
+
+    private void ActivateNewspaper(Newspaper n)
+    {
+        if (newspaper.activeSelf == false)
+        {
+            newspaper.SetActive(true);
+        }
+        else
+        {
+            newspaper.SetActive(false);
+        }
+
+        companyName.text = n.newspaperCompany;
+        headline.text = n.newspaperHeadlineText;
+        dialogue.text = n.newspaperDialogueText;
     }
 }

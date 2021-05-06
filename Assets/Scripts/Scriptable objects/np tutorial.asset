@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ea5c44576a5154c885447088207148, type: 3}
+  m_Name: np tutorial
+  m_EditorClassIdentifier: 
+  newspaperHeadlineText: New Mayor In Town
+  newspaperDialogueText: 'Mayor newbie has won the election the newbie is quite new
+    to politics so lets see how they go.
+
+
+    The mayor better check up on the scenarios
+    everyday!!'
+  newspaperCompany: New Times
+  scenarioBranch: 1
+  positive: 1

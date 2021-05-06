@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -16,11 +17,9 @@ public class Scenario : ScriptableObject
     public int costText;
 
     public int costGain;
-    public bool instantCostGain;
     public int costLoss;
-    public bool instantCostLoss;
     public int popularityGain;
-    public bool instantPopGain;
     public int popularityLoss;
-    public bool instantPopLoss;
+
+    public bool approved = false;
 }

@@ -10,22 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e1de6489d1146847bb9f5bff7135007, type: 3}
-  m_Name: s1
+  m_Name: s tutorial
   m_EditorClassIdentifier: 
-  scenarioHeadlineText: BUILDING ON SCARED LAND 1
-  scenarioDialogueText: 'Lets build on sacred land for our profit, sound like a good
-    idea??
-
-
-    The total cost will be $$$
-
-
-    our return will be $$$$$$$$$$$$$'
-  sender: CASH BILLS
-  scenarioBranch: 2
-  costText: 30000
-  costGain: 50000
-  costLoss: 15000
-  popularityGain: 5
-  popularityLoss: 200
+  scenarioHeadlineText: Here is a new scenario
+  scenarioDialogueText: everyday check these scenarios and stamp them with either
+    the approve or denied stamp
+  sender: love from the previous mayor
+  scenarioBranch: 1
+  costText: 0
+  costGain: 0
+  costLoss: 0
+  popularityGain: 0
+  popularityLoss: 0
   approved: 1

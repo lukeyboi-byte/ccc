@@ -7,7 +7,6 @@ public class DialogueTrigger : MonoBehaviour
 {
     public NewspaperDisplay newspaperDisplay;
     public ScenarioDisplay scenarioDisplay;
-    public EventManager eventManager;
 
     public void OpenNewspaper()
     {

@@ -6,10 +6,10 @@ using TMPro;
 
 public class Funding : MonoBehaviour
 {
-    public ScenarioDisplay scenarioDisplay;
-    public Scenario calcScenario;
+    public StatManager statManager;
+    public EventManager eventManager;
+
     public int startingMoney;
-    public int fundsOutcome;
     public int currentFunds;
     public TextMeshProUGUI fundingText;
     
@@ -20,49 +20,23 @@ public class Funding : MonoBehaviour
         currentFunds = startingMoney;
 
         fundingText.SetText("$ " + currentFunds.ToString());
-        
-        if (scenarioDisplay.currentScenario != null)
-        {
-            calcScenario = scenarioDisplay.currentScenario;
-        }
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        throw new NotImplementedException();
+        eventManager.StampApproveEvent += DisplayFunds;
+        eventManager.StampDeniedEvent += DisplayFunds;
     }
 
-    public void InstantFundsOutcome()
+    private void OnDisable()
     {
-        if (calcScenario != null)
-        {
-            if (calcScenario.instantCostGain)
-            {
-                fundsOutcome = calcScenario.costGain;
-            }
-
-            if (calcScenario.instantPopLoss)
-            {
-                fundsOutcome = calcScenario.costLoss;
-            }
-            fundsOutcome += currentFunds;
-        }
+        eventManager.StampApproveEvent -= DisplayFunds;
+        eventManager.StampDeniedEvent -= DisplayFunds;
     }
 
-    public void EndDayFunds()
+    public void DisplayFunds()
     {
-        if (calcScenario != null)
-        {
-            if (calcScenario.instantPopGain == false)
-            {
-                fundsOutcome = calcScenario.costGain;
-            }
-
-            if (calcScenario.instantPopLoss == false)
-            {
-                fundsOutcome = calcScenario.costLoss;
-            }
-            fundsOutcome += currentFunds;
-        }
+        fundingText.SetText("$ " + statManager.calcFunds);
+        statManager.decidedScenario = true;
     }
 }

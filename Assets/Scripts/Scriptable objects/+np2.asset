@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49ea5c44576a5154c885447088207148, type: 3}
-  m_Name: np2
+  m_Name: +np2
   m_EditorClassIdentifier: 
-  newspaperHeadlineText: NEWSPAPER 2
-  newspaperDialogueText: PAPER 2 OWOOO!!!
-  newspaperCompany: THE BAD TIMES 2
-  scenarioBranch: 2
+  newspaperHeadlineText: The headline 2++
+  newspaperDialogueText: helllo hello good 2++
+  newspaperCompany: The Good Times 2++
+  scenarioBranch: 3
+  positive: 1

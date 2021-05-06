@@ -6,13 +6,22 @@ using UnityEngine.UI;
 
 public class EventManager : MonoBehaviour
 {
-    public event Action OnNextDayEvent;
-    
-    public void NextDayEnter()
+    public event Action NextDayEvent;
+    public event Action StampApproveEvent;
+    public event Action StampDeniedEvent;
+
+    public void OnNextDayEnter()
     {
-        if (OnNextDayEvent != null)
-        {
-            OnNextDayEvent();
-        }
+        NextDayEvent?.Invoke();
+    }
+
+    public void OnStampApprove()
+    {
+        StampApproveEvent?.Invoke();
+    }
+
+    public void OnStampDenied()
+    {
+        StampDeniedEvent?.Invoke();
     }
 }

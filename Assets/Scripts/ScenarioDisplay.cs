@@ -9,8 +9,8 @@ public class ScenarioDisplay : MonoBehaviour
 {
     public GameObject scenario;
     public DayCycle daycycle;
-    public EventManager eventManager;
     public Scenario currentScenario;
+    public EventManager eventManager; 
     
     public TextMeshProUGUI headline;
     public TextMeshProUGUI dialogue;
@@ -27,22 +27,22 @@ public class ScenarioDisplay : MonoBehaviour
             return;
         }
     }
-    
-    public void OnEnable()
+
+    private void OnEnable()
     {
-        eventManager.OnNextDayEvent += CloseScenario;
+        eventManager.NextDayEvent += CloseScenario;
     }
 
-    public void OnDisable()
+    private void OnDisable()
     {
-        eventManager.OnNextDayEvent -= CloseScenario;
+        eventManager.NextDayEvent += CloseScenario;
     }
 
     public void OpenScenario()
     {
         foreach (Scenario s in scenarioObjects)
         {
-            if (s.scenarioBranch == daycycle.day)
+            if (s.scenarioBranch == daycycle.currentDay)
             {
                 if (scenario.activeSelf == false)
                 {

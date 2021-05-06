@@ -14,4 +14,5 @@ public class Newspaper : ScriptableObject
      public string newspaperCompany;
 
      public int scenarioBranch;
+     public bool positive;
 }

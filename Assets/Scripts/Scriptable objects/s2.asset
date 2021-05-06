@@ -17,7 +17,6 @@ MonoBehaviour:
     we need to respond to this somehow even if there is an opportunity for the homeless
     to at least have a decent sleep in a warm home.
 
-
     I want to build a community
     shelter for these victims of society and would appreciate if you would consider
     funding.
@@ -29,13 +28,10 @@ MonoBehaviour:
     but the return would be opportunity
     to those less fortunate 2222'
   sender: Jeff Hipster 2
-  scenarioBranch: 2
+  scenarioBranch: 3
   costText: 40000
   costGain: 100000
-  instantCostGain: 0
   costLoss: 50000
-  instantCostLoss: 1
   popularityGain: 80
-  instantPopGain: 1
-  popularityLoss: 15
-  instantPopLoss: 0
+  popularityLoss: 50
+  approved: 1

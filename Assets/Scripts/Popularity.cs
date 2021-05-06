@@ -7,10 +7,10 @@ using UnityEngine.UI;
 
 public class Popularity : MonoBehaviour
 {
-    public ScenarioDisplay scenarioDisplay;
-    public Scenario calcScenario;
+    public StatManager statManager;
+    public EventManager eventManager;
+    
     public int startingPopularity;
-    public int popularityOutcome;
     public int currentPopularity;
     private Slider slider;
 
@@ -20,53 +20,26 @@ public class Popularity : MonoBehaviour
         currentPopularity = startingPopularity;
         slider = GetComponent<Slider>();
         slider.value = currentPopularity;
-
-        if (scenarioDisplay.currentScenario != null)
-        { 
-            calcScenario = scenarioDisplay.currentScenario;
-        }
-        
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        throw new NotImplementedException();
+        eventManager.StampApproveEvent += DisplayPop;
+        eventManager.StampDeniedEvent += DisplayPop;
     }
 
-    public void InstantPopOutcome()
+    private void OnDisable()
     {
-        if (calcScenario != null)
-        {
-            if (calcScenario.instantPopGain)
-            {
-                popularityOutcome = calcScenario.popularityGain;
-            }
-
-            if (calcScenario.instantPopLoss)
-            {
-                popularityOutcome = calcScenario.popularityLoss;
-            }
-            popularityOutcome += currentPopularity;
-        }
+        eventManager.StampApproveEvent -= DisplayPop;
+        eventManager.StampDeniedEvent -= DisplayPop;
     }
 
-    public void EndDayPop()
+    public void DisplayPop()
     {
-        if (calcScenario != null)
-        {
-            if (calcScenario.instantPopGain == false)
-            {
-                popularityOutcome = calcScenario.popularityGain;
-            }
-
-            if (calcScenario.instantPopLoss == false)
-            {
-                popularityOutcome = calcScenario.popularityLoss;
-            }
-            popularityOutcome += currentPopularity;
-        }
+        slider.value = statManager.calcPop;
+        currentPopularity = statManager.calcPop;
+        statManager.decidedScenario = true;
     }
-
 }
 
 
